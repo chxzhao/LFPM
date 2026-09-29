@@ -1,6 +1,6 @@
 # Method and source provenance
 
-Target manuscript: `LFPM_revised_20260929`.
+Target manuscript: *Testing factor pricing restrictions in high dimensions without knowing the sparsity of alphas*.
 The associated simulation chapter is `outputs/simulation_20260929_english_JOE`.
 Its numerical source is `simulation_ma2024_20260929`, using the preserved
 `simulation_five_methods_20260927` generator and comparator routines.

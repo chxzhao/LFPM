@@ -1,6 +1,6 @@
 {
   "source": "simulation_ma2024_20260929/results/final_all_models",
-  "manuscript": "LFPM_revised_20260929",
+  "manuscript": "Testing factor pricing restrictions in high dimensions without knowing the sparsity of alphas",
   "type": "cached aggregate simulation summaries; no new simulation and no empirical datasets",
   "R": 1000,
   "Rcal": 1999,

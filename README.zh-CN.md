@@ -1,6 +1,6 @@
 # LFPM：论文方法与模拟复现
 
-版本 **0.1.1**，依据 `LFPM_revised_20260929` 整合稿整理。
+版本 **0.1.1**，配套论文：*Testing factor pricing restrictions in high dimensions without knowing the sparsity of alphas*。
 作者：Chenxi Zhao。维护者邮箱：chxzhao@mail.nankai.edu.cn。
 
 本包提供可直接调用的 R 检验函数和论文模拟复现。

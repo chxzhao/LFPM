@@ -1,7 +1,6 @@
 # LFPM
 
-An R package for *Adaptive L-tests for alpha in high-dimensional linear factor
-pricing models*, based on the integrated manuscript `LFPM_revised_20260929`.
+An R package for *Testing factor pricing restrictions in high dimensions without knowing the sparsity of alphas*.
 Version 0.1.1 contains reusable R methods and simulation reproduction.
 Case-study material is limited to [external data-source links](inst/reproduction/DATA_SOURCES.md);
 case-study analysis code and market data are not included.

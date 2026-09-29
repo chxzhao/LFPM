@@ -1,6 +1,6 @@
 # Chapter 3: standalone simulation reproduction
 
-This package follows `LFPM_revised_20260929` and its Ma-rule AdaL simulation,
+This package follows *Testing factor pricing restrictions in high dimensions without knowing the sparsity of alphas* and its Ma-rule AdaL simulation,
 from `simulation_ma2024_20260929` plus the preserved four comparators in
 `simulation_five_methods_20260927`. It does not use the subsequent alternative
 `sim_fullgrid_refit` experiment. No original project directory, archive,

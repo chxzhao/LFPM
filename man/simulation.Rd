@@ -3,7 +3,7 @@
 \alias{reproduce_simulation}
 \alias{plot_simulation}
 \alias{reproduction_reference}
-\title{Reproduce the September 29, 2026 Manuscript Simulation}
+\title{Reproduce the Paper's Simulations}
 \description{
 Construct a simulation design, recompute all five methods from fresh random
 draws with restartable checkpoints, read cached manuscript summary tables,
@@ -74,7 +74,7 @@ The full design has 96 size scenarios and 3200 power scenarios (four covariance
 models, four distributions, six size dimensions, and all 200 sparsities at
 T=100 and N=200). Rejection uses the strict rule \eqn{p < 0.05}.
 The five methods are PY, MAX, COM, the retained AT\_XZ-style max-k comparator,
-and the Ma-rule AdaL used in \emph{LFPM\_revised\_20260929}. This is the
+and the Ma-rule AdaL used in \emph{Testing factor pricing restrictions in high dimensions without knowing the sparsity of alphas}. This is the
 chapter 3 experiment, not the later alternative full-grid simulation.
 
 The four earlier comparator statistics and Ma-rule AdaL are recomputed with
