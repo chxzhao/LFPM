@@ -1,0 +1,14 @@
+{
+  "paper": "Testing factor pricing restrictions in high dimensions without knowing the sparsity of alphas",
+  "sources": {
+    "scripts/real_data_20260903.py": "555a1b0c7b390f046f5b124f30b348648ad5e2581a62c1626c41ff72e30932d2",
+    "scripts/real_data_bimarket_20260906.py": "629bd225c88508f144ed6477b6d2b766cd7cdd5567e7d1b864679963bcd3fd60",
+    "scripts/adal_fullgrid_empirical_20260929.py": "54e12efbbca21a932810fbff078c908474493c9bb6c8b18ce677f2d7fc58bf69",
+    "scripts/adal_fullgrid_empirical_oldstream_20260929.py": "d66675419feb23b8df6f6b56133b637f97284625a91b68f86e2b1808643d2a6e",
+    "scripts/adal_fullgrid_refit_diagnostic_20260929.py": "15f3b9c833e65244355935e44df7d881f1482774949ec4492ee91f29dc68d4f2",
+    "scripts/us_break_selection_adjusted_fullgrid_20260929.py": "4671b7b568289c3211633d85995f74acb551cdcf71bebbe8ffe733f84865e98a",
+    "scripts/us_ff5_robustness_20260928.py": "0829992ef052b395fe2505d926d6b2efd42517f65b0b78c18e9ad2156a80cfdb",
+    "scripts/empirical_mustdo_20260928.py": "a9d32d4629a991e1dd831742897f953e562fddd58e17299533bbffd1fc471c58"
+  },
+  "adaptation": "Pure numerical functions extracted; all I/O replaced by external data directory and output directory. No historical result arrays are required."
+}

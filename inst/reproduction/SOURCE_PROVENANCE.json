@@ -24,12 +24,14 @@
   ],
   "notes": [
     "Paths identify the source project; they are not runtime dependencies.",
+    "Python source provenance is in inst/python/SOURCE_MAP.json; QUIC source retains upstream attribution and license notices.",
     "Bundled reference tables are simulation aggregates only.",
-    "No case-study analysis code, case-study outputs, market observations or prepared empirical panels are included.",
-    "Case-study data sources are linked in inst/reproduction/DATA_SOURCES.md.",
-    "The generic adal_test empirical calibration option remains available as an R statistical method.",
-    "The package uses standard R packages and does not require a compiled extension."
+    "No market observations, raw database exports, prepared empirical panels or credentials are included.",
+    "External data sources and input contracts are documented in inst/reproduction/DATA_SOURCES.md; empirical workflows and dependencies are documented in inst/reproduction/EMPIRICAL.md.",
+    "Generic R calibration options remain available; empirical reproduction preserves separate NumPy random streams.",
+    "The archived final China max-k penalty-sensitivity endpoint lacks its original seed and draw-budget metadata; the deterministic rerun flags unverified historical RNG parity.",
+    "Short numerical and synthetic integration checks do not establish a full rerun or revalidation of all published numerical results."
   ],
-  "package_version": "0.1.1",
-  "scope": "Reusable R statistical methods and manuscript simulation reproduction; case studies have data-source links only."
+  "package_version": "0.1.2",
+  "scope": "Reusable R statistical methods, manuscript simulation reproduction, and empirical reproduction code using separately acquired market data."
 }

@@ -1,18 +1,23 @@
 Package: LFPM
 Type: Package
 Title: Adaptive L-Statistic Tests for Linear Factor Pricing Models
-Version: 0.1.1
+Version: 0.1.2
 Author: Chenxi Zhao
 Maintainer: Chenxi Zhao <chxzhao@mail.nankai.edu.cn>
 Description: Implements ordered-sum and adaptive tests of intercepts in
     high-dimensional linear factor pricing models, with reusable R functions
-    and reproducible simulation workflows for "Testing factor pricing
-    restrictions in high dimensions without knowing the sparsity of alphas".
-    Provides explicit bootstrap-tail and bootstrap-moment
-    component calibration options. Case-study material is limited to external
-    data-source links; case-study analysis code and market data are not included.
+    and simulation and empirical reproduction workflows for "Testing factor
+    pricing restrictions in high dimensions without knowing the sparsity of
+    alphas". Provides explicit bootstrap-tail and bootstrap-moment component
+    calibration options. An optional Python backend preserves the empirical
+    implementation's random streams and numerical conventions. Market data
+    must be acquired separately from the documented external sources and are
+    not distributed with the package.
 License: GPL-3
 Encoding: UTF-8
 Depends: R (>= 4.2.0)
 Imports: stats, utils, graphics, grDevices, parallel
+SystemRequirements: Python 3.9 or later with NumPy, pandas, SciPy, statsmodels,
+    threadpoolctl and optionally matplotlib for empirical reproduction;
+    a C++ compiler and BLAS/LAPACK for the optional empirical QUIC solver
 NeedsCompilation: no

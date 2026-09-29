@@ -102,9 +102,11 @@ finite-sample scaling, COM is OR--Bonferroni, and max-k retains the thresholded
 precision estimate and four-point grid from the simulation code. PY requires
 residual degrees of freedom greater than four. These are the paper's simulation
 benchmarks and are not claimed to duplicate every published algorithm.
-These are general-purpose methods for caller-supplied matrices. Case-study
-analysis and reproduction scripts are not included; only data-source links
-are provided in \file{reproduction/DATA_SOURCES.md}.
+These are general-purpose methods for caller-supplied matrices. The separate
+\code{\link{reproduce_empirical}} workflow preserves the paper's empirical
+implementation and reads data supplied outside the package. Sources and input
+requirements are given in \file{reproduction/DATA_SOURCES.md}; no market data
+are distributed.
 
 The simulator retains the frozen factor recursion, innovation order, covariance
 construction, 50-observation burn-in, and random loading and support draws. It

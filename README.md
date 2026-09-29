@@ -1,9 +1,10 @@
 # LFPM
 
 An R package for *Testing factor pricing restrictions in high dimensions without knowing the sparsity of alphas*.
-Version 0.1.1 contains reusable R methods and simulation reproduction.
-Case-study material is limited to [external data-source links](inst/reproduction/DATA_SOURCES.md);
-case-study analysis code and market data are not included.
+Version 0.1.2 provides reusable R methods, simulation reproduction, and empirical
+reproduction code. **Actual case-study data are not included.** Obtain them from
+[the external data sources](inst/reproduction/DATA_SOURCES.md), which also document
+required files, fields, units and sample-construction rules.
 
 Author: **Chenxi Zhao**.
 Maintainer: Chenxi Zhao <chxzhao@mail.nankai.edu.cn>.
@@ -15,17 +16,25 @@ With R 4.2 or later, from this repository's root:
 
 ```sh
 R CMD build .
-R CMD INSTALL LFPM_0.1.1.tar.gz
+R CMD INSTALL LFPM_0.1.2.tar.gz
 ```
 
-The package uses R's standard packages and requires no compiled extensions.
+The reusable R tests and simulations use R's standard packages. Empirical
+reproduction uses an optional Python 3.9+ environment with NumPy, pandas,
+SciPy, statsmodels and threadpoolctl; plotting additionally uses matplotlib.
+The empirical max-k benchmark compiles the included QUIC source at runtime
+and requires a C++ compiler with Accelerate on macOS or LP64 BLAS/LAPACK
+on Linux. It is not currently supported on Windows; use
+`include_maxk = FALSE` there to omit that comparator. Package installation
+itself does not compile this optional solver. See the
+[empirical guide](inst/reproduction/EMPIRICAL.md) for setup and tested versions.
 
 ## Test your own panel
 
 Rows are observations (dates), columns of `Y` are asset excess returns, and
 columns of `F` are factors. The functions add the intercept themselves.
-This example uses synthetic data and shows two general component-calibration
-options for the same reusable AdaL function.
+This example uses synthetic data and shows the two component-calibration
+options for the reusable R AdaL function.
 
 ```r
 library(LFPM)
@@ -38,10 +47,11 @@ adal_test(dat$Y, dat$F, B = 99, calibration = "empirical", seed = 43)
 lfpm_test(dat$Y, dat$F, B = 99, seed = 43)
 ```
 
-`B = 99` is a quick example, not the paper's simulation budget of 999 bootstrap
-draws. The `"empirical"` option means empirical bootstrap-tail probabilities;
-it is a generic statistical calibration option, not a case-study workflow.
-See the help pages for return values, input restrictions and seed handling.
+`B = 99` is a quick example, not a formal reproduction budget. The
+`"empirical"` option means empirical bootstrap-tail probabilities and is also
+available as a general R statistical method. The paper's empirical reproduction
+interface below preserves its original Python random streams; an identical
+integer seed in R and NumPy does not generate identical draws.
 
 ## Reproduce the simulations
 
@@ -68,11 +78,48 @@ Bundled **simulation summary tables** are cached reference outputs.
 `reproduction_reference()` reads them without rerunning the experiments.
 The tables and plots distinguish cached references from newly computed runs.
 
-## Calibration options
+## Reproduce the empirical analyses
 
-The reusable AdaL function makes its calibration convention explicit:
+Acquire the files described in [DATA_SOURCES.md](inst/reproduction/DATA_SOURCES.md)
+and keep them outside the package and public repository. The China sources
+require authorized CSMAR access. Public source vintages can change, so new
+downloads do not guarantee the same historical observations.
 
-| Convention | `calibration = "simulation"` | `calibration = "empirical"` |
+```r
+py <- "/path/to/your/python"
+
+# One main setting, using externally acquired data.
+china <- reproduce_empirical(
+  data_dir = "/external/market-data",
+  output_dir = "/external/results/china",
+  analysis = "china", python = py)
+
+# All supported final settings and checks; substantial computation.
+# paper <- reproduce_empirical(
+#   data_dir = "/external/market-data",
+#   output_dir = "/external/results/paper",
+#   analysis = "all", python = py)
+
+# Rebuild tables and figures from an already computed output directory.
+report <- report_empirical(china$output_dir)
+```
+
+`lfpm_empirical_test(Y, F, python = py)` exposes the empirical test definitions
+on user-supplied matrices. `reproduce_empirical()` provides the China, U.S. FF3
+and U.S. FF5 analyses, diagnostics, fitted-null calibration, break reselection
+and max-k sensitivity. Main-setting runs automatically create a report with
+joint tests, component probabilities, alpha magnitudes, stock-level BH counts,
+available diagnostics, coverage flags and the alpha-distribution figure.
+Missing settings and deliberately omitted comparators remain missing; historical
+paper values are not inserted. Outputs may contain stock identifiers and
+estimated alphas, so keep output directories outside the public repository.
+See the [empirical guide](inst/reproduction/EMPIRICAL.md) for options, budgets,
+seeds, complete inputs and output files. No raw or cleaned market panels,
+downloaded archives, database exports or credentials are bundled.
+
+## Calibration is part of the method
+
+| Convention | Simulation implementation | Empirical implementation |
 |---|---|---|
 | Candidate orders | 5 plus the complete Ma dyadic grid | Same grid |
 | Order 5 p-value | Add-one empirical bootstrap right tail | Same |
@@ -92,35 +139,37 @@ establish an exact fixed-level theorem for the complete growing candidate grid.
 |---|---|
 | L and AdaL | The manuscript's factor-model implementation, with explicit calibration choices |
 | PY | Local implementation of the documented Pesaran--Yamagata correction |
-| MAX | Local maximum-test implementation with the simulation's finite-sample scaling |
+| MAX | Local maximum-test implementation; scaling follows the relevant workflow |
 | COM | OR--Bonferroni combination of PY and MAX |
-| max-k | The simulation's precision-transformed benchmark, inspired by Xia--Zhang, with its four-order grid and thresholded covariance estimate |
+| max-k | The specified precision-transformed benchmark inspired by Xia--Zhang; simulation uses a four-order thresholded-covariance version, while empirical reproduction uses QUIC and Gaussian multipliers |
 
-These are **not calls to official author R packages**. Covariance thresholding
-uses base R. `cvCovEst::thresholdingEst` was an optional numerical validation
-reference in the original project and is not a runtime dependency.
+These are **not calls to official author R packages**. Simulation covariance
+thresholding uses base R. `cvCovEst::thresholdingEst` was an optional numerical
+validation reference in the source project and is not a runtime dependency.
+The empirical solver uses QUIC 1.2 source obtained through `skggm` 0.2.8;
+upstream authorship, license and source provenance are retained with it.
 The benchmark is the documented adaptation, not a claim to reproduce every
-published max-k procedure. See [method attribution](inst/reproduction/METHODS.md)
-for the statistical references.
-
-## Case-study data sources
-
-The [data-source page](inst/reproduction/DATA_SOURCES.md) links to the sources
-used for the paper's case studies. This release does not include case-study
-analysis scripts, case-study reproduction/reporting functions, downloaded
-files, cleaned market panels or credentials. Users obtain external data under
-the providers' access conditions.
+published max-k procedure. See [method attribution](inst/reproduction/METHODS.md).
 
 ## Checks and reproducibility limits
 
 ```sh
 R CMD build .
-R CMD check --no-manual LFPM_0.1.1.tar.gz
+R CMD check --no-manual LFPM_0.1.2.tar.gz
 ```
 
-A successful short smoke run does not mean the full simulation study has been
-rerun. Floating-point differences across R/BLAS platforms can affect tail
-comparisons even with the same random draws. Reproduction manifests validate
-settings, budgets and engine compatibility before checkpoints are reused.
+Short numerical, synthetic-data and integration checks do not establish that
+the full simulation and real-data study has been rerun or that every published
+number has been revalidated. Floating-point differences across R/BLAS and
+Python numerical libraries can affect tail comparisons. Simulation manifests
+validate settings, budgets and engine compatibility before reusing checkpoints;
+empirical runs record source-file hashes, software versions and seeds.
 
-License: GPL-3.
+The archived final China max-k penalty-sensitivity endpoint lacks its original
+seed and draw-budget metadata. The sensitivity interface performs a fresh,
+deterministic calculation and flags `historical_rng_parity_verified = FALSE`.
+It cannot certify exact regeneration of that historical Monte Carlo value.
+The [empirical guide](inst/reproduction/EMPIRICAL.md) explains this limitation
+separately from the recovered seed streams for the main tests.
+
+License: GPL-3. The included QUIC source retains its upstream license notices.
