@@ -1,0 +1,7 @@
+# Optional empirical backend, tested with Python 3.10.11
+numpy==1.23.5
+pandas==1.5.3
+scipy==1.10.0
+statsmodels==0.13.5
+threadpoolctl==2.2.0
+matplotlib==3.7.0

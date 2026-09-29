@@ -1,0 +1,10 @@
+^\.git$
+^\.gitignore$
+^\.Rbuildignore$
+^\.github$
+^.*\.Rcheck$
+^.*\.tar\.gz$
+^artifacts$
+^reproduction-output$
+^README\.zh-CN\.md$
+^LICENSE\.md$

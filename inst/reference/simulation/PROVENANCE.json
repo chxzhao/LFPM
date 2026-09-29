@@ -1,0 +1,66 @@
+{
+  "source": "simulation_ma2024_20260929/results/final_all_models",
+  "manuscript": "LFPM_revised_20260929",
+  "type": "cached aggregate simulation summaries; no new simulation and no empirical datasets",
+  "R": 1000,
+  "Rcal": 1999,
+  "B": 999,
+  "seed": 20260927,
+  "files": [
+    {
+      "table": "size_summary",
+      "sha256_uncompressed_csv": "fcb0596678afc97adc5464902565abbb1512de7f91cdf9c550c280b932442420",
+      "bytes_uncompressed": 108350
+    },
+    {
+      "table": "power_summary",
+      "sha256_uncompressed_csv": "4bf018620724863fa246ca86acac6eb6180e5b572271e9e35aaa165698dfd182",
+      "bytes_uncompressed": 3607998
+    },
+    {
+      "table": "size_paired_differences",
+      "sha256_uncompressed_csv": "9d22881d309cc3d3076b4144d57e5c954270c2e5af19ea714d3bb2ab902bea50",
+      "bytes_uncompressed": 96593
+    },
+    {
+      "table": "power_paired_differences",
+      "sha256_uncompressed_csv": "49ea36f1eb9dfb6f9a4d44f60e30c1e389196026e51bbf1a9bd831b494af33e0",
+      "bytes_uncompressed": 3115048
+    },
+    {
+      "table": "power_band_summary",
+      "sha256_uncompressed_csv": "1bb021b3fd66fbd776f9b3b29bafbaffd4eb729b6e6939a5318d2b1059318e5e",
+      "bytes_uncompressed": 80482
+    },
+    {
+      "table": "power_band_paired_differences",
+      "sha256_uncompressed_csv": "2f5af91c6c3044fe484663bb5ecdf602b682a8e5555f0196cd8f9b3694f36025",
+      "bytes_uncompressed": 61123
+    },
+    {
+      "table": "size_native_percent",
+      "sha256_uncompressed_csv": "90bad6ff38e26c8371c717583ca2dc75b3014d795fd6d16c60917f3f2e6a34dc",
+      "bytes_uncompressed": 3695
+    },
+    {
+      "table": "size_equal_size_percent",
+      "sha256_uncompressed_csv": "42293482deef1df496910a614e9a39dd8258eb23015bb9ced55f79b8fd7e78c8",
+      "bytes_uncompressed": 3632
+    },
+    {
+      "table": "power_selected_m_percent",
+      "sha256_uncompressed_csv": "94c7010796b768127e85341c481d15807f79037d5b36636b344296776a5bd51c",
+      "bytes_uncompressed": 12560
+    },
+    {
+      "table": "manuscript_claims",
+      "sha256_uncompressed_csv": "fdc654fca9ac8cf121b1fb5c7d8d472ba067734f3f7c6eb5fcfd02bdeef7fcd3",
+      "bytes_uncompressed": 8395
+    },
+    {
+      "table": "validation_summary",
+      "sha256_uncompressed_csv": "2350b413bc490d62e6e891f93cb5891b8be58d10a755e3f9cdfd2418eb8727bf",
+      "bytes_uncompressed": 487
+    }
+  ]
+}

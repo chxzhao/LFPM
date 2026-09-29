@@ -1,0 +1,31 @@
+{
+  "target_manuscript": "LFPM_revised_20260929",
+  "original_sources": [
+    {
+      "path": "lfpm_final_integration_20260929/LFPM_revised_20260929.tex",
+      "sha256": "3d41207160c700e335c8d9ba028c46e75ee6a5bfa76ecc67e65a89d575936b46"
+    },
+    {
+      "path": "simulation_five_methods_20260927/code/lfpm_core.R",
+      "sha256": "5fded9e0e0d20807e2b6576e3e29b53f046f8a02b5b8843718016ad7a012d5c3"
+    },
+    {
+      "path": "simulation_five_methods_20260927/code/lfpm_fast.R",
+      "sha256": "7d1099f214bdd72b75b8cec01190b6b6393b2338cb1cba076da8fcbb1994a32b"
+    },
+    {
+      "path": "simulation_ma2024_20260929/code/ma_engine.R",
+      "sha256": "fe3e483bd591f2bf3e914499f9d2b94f0e4085c334e521d260fd551f55ce5c08"
+    },
+    {
+      "path": "outputs/simulation_20260929_english_JOE/method_details.tex",
+      "sha256": "56592395950334f3ab5d104dd86860a22a1471a382391b9c5c68e3322d3a3422"
+    }
+  ],
+  "notes": [
+    "Paths identify the source project; they are not runtime dependencies.",
+    "Python source provenance is in inst/python/SOURCE_MAP.json.",
+    "Bundled reference tables are simulation aggregates only.",
+    "No market observations or prepared empirical panels are included."
+  ]
+}
