@@ -24,8 +24,12 @@
   ],
   "notes": [
     "Paths identify the source project; they are not runtime dependencies.",
-    "Python source provenance is in inst/python/SOURCE_MAP.json.",
     "Bundled reference tables are simulation aggregates only.",
-    "No market observations or prepared empirical panels are included."
-  ]
+    "No case-study analysis code, case-study outputs, market observations or prepared empirical panels are included.",
+    "Case-study data sources are linked in inst/reproduction/DATA_SOURCES.md.",
+    "The generic adal_test empirical calibration option remains available as an R statistical method.",
+    "The package uses standard R packages and does not require a compiled extension."
+  ],
+  "package_version": "0.1.1",
+  "scope": "Reusable R statistical methods and manuscript simulation reproduction; case studies have data-source links only."
 }

@@ -86,11 +86,11 @@ cases the analytic Cauchy upper-tail probability is evaluated using
 \code{pcauchy} for numerical stability. P-values are returned without applying
 a rejection threshold.
 
-The empirical branch also retains the archived Python implementation's
+The \code{calibration="empirical"} option applies a
 \eqn{10^{-20}} lower bound on refitted bootstrap variances, including zero
 or negative values from numerical subtraction. Its \code{variance_audit}
 reports the smallest raw variance and the number of entries at or below this
-bound. This safeguard is a numerical convention of that empirical code; it is
+bound. This safeguard is a numerical convention of this calibration; it is
 not the zero-statistic convention discussed in the mathematical theory, and
 it is not applied to the simulation branch. Nonfinite numerical results raise
 an error. With very small data scales this absolute floor can affect results,
@@ -101,8 +101,10 @@ multiplier matrix. PY includes the original correlation correction, MAX its
 finite-sample scaling, COM is OR--Bonferroni, and max-k retains the thresholded
 precision estimate and four-point grid from the simulation code. PY requires
 residual degrees of freedom greater than four. These are the paper's simulation
-benchmarks and are not claimed to duplicate every published algorithm or the
-separate Python interfaces used for the empirical-data comparators.
+benchmarks and are not claimed to duplicate every published algorithm.
+These are general-purpose methods for caller-supplied matrices. Case-study
+analysis and reproduction scripts are not included; only data-source links
+are provided in \file{reproduction/DATA_SOURCES.md}.
 
 The simulator retains the frozen factor recursion, innovation order, covariance
 construction, 50-observation burn-in, and random loading and support draws. It
